@@ -31,7 +31,41 @@ for ($i = 0; $i < count($pages['name']); $i++) {
 
   mkdir("../../data/$id", 0750);
   if (!move_uploaded_file($pages['tmp_name'][$i], $filepath)) {
-    $result['message'] = 'Unable to move uploaded file: ' . $pages['error'][$i];
+    $error_code = $pages['error'][$i];
+    switch ($error_code) {
+      case UPLOAD_ERR_INI_SIZE:
+        $result['message'] = 'Uploaded file exceeds the upload_max_filesize directive in php.ini';
+        break;
+
+      case UPLOAD_ERR_FORM_SIZE:
+        $result['message'] = 'Uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form';
+        break;
+
+      case UPLOAD_ERR_PARTIAL:
+        $result['message'] = 'Uploaded file was only partially uploaded';
+        break;
+
+      case UPLOAD_ERR_NO_FILE:
+        $result['message'] = 'No file was uploaded';
+        break;
+
+      case UPLOAD_ERR_NO_TMP_DIR:
+        $result['message'] = 'Missing a temporary folder';
+        break;
+
+      case UPLOAD_ERR_CANT_WRITE:
+        $result['message'] = 'Failed to write to disk';
+        break;
+
+      case UPLOAD_ERR_EXTENSION:
+        $result['message'] = 'A PHP extension stopped the file upload';
+        break;
+
+      default:
+        $result['message'] = 'Unknown error';
+    }
+
+    $con->query("DELETE FROM `documents` WHERE `id`=$id");
     die(json_encode($result));
   }
 }
