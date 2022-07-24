@@ -29,9 +29,9 @@ for ($i = 0; $i < count($pages['name']); $i++) {
   $ext = $fileinfo['extension'];
   $filepath = "../../data/$id/$i.$ext";
 
-  mkdir("../../data/$id");
+  mkdir("../../data/$id", 0750);
   if (!move_uploaded_file($pages['tmp_name'][$i], $filepath)) {
-    $result['message'] = 'Unable to move uploaded file';
+    $result['message'] = 'Unable to move uploaded file: ' . $pages['error'][$i];
     die(json_encode($result));
   }
 }
