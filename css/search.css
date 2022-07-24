@@ -1,0 +1,17 @@
+
+#results-carousel {
+  min-height: 450px;
+}
+
+#results-container .results-header {
+  width: 640px;
+  margin: auto;
+}
+
+#results-carousel .result-imgs img {
+  cursor: pointer;
+}
+
+.full-image-img {
+  min-height: calc(100vh - 128px);
+}

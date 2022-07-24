@@ -1,0 +1,31 @@
+
+input[type="month"],
+input[type="date"] {
+  box-sizing: border-box;
+  outline: 0;
+  position: relative;
+  width: 100%;
+}
+
+input[type="month"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+.sidebar {
+  height: 100vh;
+}
+
+.form {
+  width: 640px;
+  margin: 32px auto;
+}
