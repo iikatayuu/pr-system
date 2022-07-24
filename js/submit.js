@@ -58,6 +58,8 @@ $(document).ready(function () {
       if (res.success) {
         $('#submit-status').removeClass('d-none border-danger').addClass('border-success').text('Submitted successfully')
         $('#department').prop('selectize').clear()
+        $('#preview').empty()
+        $('#preview-container').addClass('d-none')
         $(form).trigger('reset')
       } else {
         $('#submit-status').removeClass('d-none border-success').addClass('border-danger').text(res.message)
@@ -69,7 +71,5 @@ $(document).ready(function () {
     $(form).find('[type="submit"]').attr('disabled', null)
     $(form).find('[type="submit"] .spinner-border').addClass('d-none')
     $(form).find('[type="submit"] .submit-status').text('Submit')
-    $('#preview').empty()
-    $('#preview-container').addClass('d-none')
   })
 })
