@@ -96,7 +96,7 @@ $departments = $con->query("SELECT * FROM `departments`");
           <div class="result-imgs d-flex flex-wrap justify-content-center"></div>
           <div class="carousel-caption border rounded bg-dark text-white col-6 mx-auto d-none d-md-block">
             <h5 class="dept-name"></h5>
-            <p class="doc-date">April 27, 2022</p>
+            <p class="doc-date"></p>
           </div>
         </div>
       </template>
@@ -107,7 +107,6 @@ $departments = $con->query("SELECT * FROM `departments`");
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body text-center">
-          <a href="" class="full-image-open btn btn-dark mb-2" role="button">Open Image in New Tab</a>
           <img src="" alt="" class="full-image-img img-thumbnail">
         </div>
       </div>

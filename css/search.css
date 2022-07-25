@@ -12,6 +12,6 @@
   cursor: pointer;
 }
 
-.full-image-img {
-  min-height: calc(100vh - 128px);
+#full-image .modal-dialog {
+  max-width: calc(100vw - 260px);
 }
