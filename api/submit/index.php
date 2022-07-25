@@ -24,12 +24,13 @@ if (count($pages['name']) === 0) {
 
 $con->query("INSERT INTO `documents` (`department`, `date`) VALUES ('$dept', '$date')");
 $id = $con->insert_id;
+mkdir("../../data/$id", 0750);
+
 for ($i = 0; $i < count($pages['name']); $i++) {
   $fileinfo = pathinfo($pages['name'][$i]);
   $ext = $fileinfo['extension'];
   $filepath = "../../data/$id/$i.$ext";
 
-  mkdir("../../data/$id", 0750);
   if (!move_uploaded_file($pages['tmp_name'][$i], $filepath)) {
     $error_code = $pages['error'][$i];
     switch ($error_code) {
