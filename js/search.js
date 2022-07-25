@@ -80,6 +80,12 @@ $(document).ready(function () {
     const alt = $(this).attr('alt')
     const modal = bootstrap.Modal.getOrCreateInstance('#full-image')
 
+    $('#full-image').find('.full-image-open').attr({
+      href: src,
+      target: '_blank',
+      rel: 'nofollow'
+    })
+
     $('#full-image').find('.full-image-img').attr({
       src: src,
       alt: alt

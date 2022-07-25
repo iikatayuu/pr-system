@@ -107,6 +107,7 @@ $departments = $con->query("SELECT * FROM `departments`");
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body text-center">
+          <a href="" class="full-image-open btn btn-dark mb-2" role="button">Open Image in New Tab</a>
           <img src="" alt="" class="full-image-img img-thumbnail">
         </div>
       </div>
