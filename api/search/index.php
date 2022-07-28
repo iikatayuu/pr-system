@@ -31,7 +31,14 @@ if ($date_to !== null) {
 
 $where = implode(' AND ', $filter);
 $where = count($filter) > 0 ? "WHERE $where" : '';
-$docs = $con->query("SELECT * FROM `documents` $where ORDER BY `date` DESC");
+$query = <<<EOD
+SELECT `documents`.*,`departments`.`name` FROM `documents`
+INNER JOIN `departments` ON `documents`.`department`=`departments`.`abbr`
+{$where}
+ORDER BY `date` DESC
+EOD;
+
+$docs = $con->query($query);
 $results = [];
 
 function files_to_url ($file) {
@@ -39,9 +46,6 @@ function files_to_url ($file) {
 }
 
 while ($doc = $docs->fetch_assoc()) {
-  $abbr = $doc['department'];
-  $depts = $con->query("SELECT * FROM `departments` WHERE `abbr`='$abbr' LIMIT 1");
-  $doc['name'] = $depts->num_rows > 0 ? $depts->fetch_object()->name : '';
   $id = $doc['id'];
   $files = glob("../../data/$id/*");
   $urls = array_map('files_to_url', $files);
