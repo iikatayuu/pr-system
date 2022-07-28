@@ -10,16 +10,16 @@ $departments = $con->query("SELECT * FROM `departments`");
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1.0, width=device-width">
 
-  <script src="/lib/jquery/jquery.min.js"></script>
-  <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="/lib/selectize.js/js/selectize.min.js"></script>
-  <script src="/js/default.js"></script>
-  <script src="/js/search.js"></script>
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/selectize.js/js/selectize.min.js"></script>
+  <script src="js/default.js"></script>
+  <script src="js/search.js"></script>
 
-  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/lib/selectize.js/css/selectize.bootstrap5.min.css">
-  <link rel="stylesheet" href="/css/default.css">
-  <link rel="stylesheet" href="/css/search.css">
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/selectize.js/css/selectize.bootstrap5.min.css">
+  <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/search.css">
 
   <title>Search Documents</title>
 </head>
@@ -28,18 +28,18 @@ $departments = $con->query("SELECT * FROM `departments`");
   <div class="row gx-0">
     <aside class="sidebar col-2 border-end">
       <div class="border-bottom text-center mb-0 p-3">
-        <img src="/img/seal.png" alt="Provincial Government of Negros Occidental Official Seal" class="d-block mx-auto mb-1">
+        <img src="img/seal.png" alt="Provincial Government of Negros Occidental Official Seal" class="d-block mx-auto mb-1">
         <strong>Information and Communications Technology - Division</strong>
       </div>
 
       <div class="list-group list-group-flush">
-        <a href="/" id="sidebar-search" class="list-group-item list-group-item-action py-2 active">Search</a>
-        <a href="/submit.php" id="sidebar-submit" class="list-group-item list-group-item-action py-2">Submit</a>
+        <a href="" id="sidebar-search" class="list-group-item list-group-item-action py-2 active">Search</a>
+        <a href="submit.php" id="sidebar-submit" class="list-group-item list-group-item-action py-2">Submit</a>
       </div>
     </aside>
 
     <main class="col-10">
-      <form id="form-search" action="/api/search/" method="post" class="form">
+      <form id="form-search" action="api/search/" method="post" class="form">
         <h4>Search documents</h4>
         <div class="mb-2">
           <label for="department">Department:</label>
